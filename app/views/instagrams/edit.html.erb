@@ -1,0 +1,11 @@
+<article class="content">
+  <div class = "content_image"><%= image_tag @instagram.image_url , style: 'height:auto;width:100%;'%></div>
+    <%= form_with(model: @instagram,scope: :instagram,method: :patch, local: true , url: instagram_path, html: { class: 'input-form'}) do |form| %>
+    <div class = "form_textarea"><%= form.text_area :content %></div>
+    <div class = "content_submit"><%= form.submit "編集" ,style: 'height:auto;width: 100%;'%></div>
+
+    <% end %>
+    <br>
+    <%= link_to '戻る',instagram_path(@instagram.id),method: :get %>
+
+</article>

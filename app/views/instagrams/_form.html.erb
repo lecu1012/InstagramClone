@@ -1,0 +1,15 @@
+<%= form_with(model: @Instagram, local: true,url: instagrams_upload_path) do |form| %>
+
+
+<div class="field">
+
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  <%= form.label "画像選択" %><br>
+  <%= form.file_field :image %><br>
+  <%= form.text_area :content %><br>
+
+  <%= form.submit "投稿" ,style: 'height:auto;width: 20%;' %>
+</div>
+
+<% end %>

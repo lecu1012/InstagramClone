@@ -1,0 +1,19 @@
+<article class = "content">
+  <div class = "content_image"><%= image_tag @instagram.image_url , style: 'height:auto;width:100%;'%></div>
+  <h3><%= @instagram.user.name %>
+  <% unless @instagram.user == current_user %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除する', favorite_path(instagram_id: @instagram.id), method: :delete, class: 'btn btn-danger' %>
+    <% else %>
+      <%= link_to 'お気に入りする', favorites_path(instagram_id: @instagram.id), method: :post, class: 'btn btn-prymary' %>
+    <% end %>
+  <% else %>
+  <%= link_to "編集", edit_instagram_path(@instagram.id),class: 'btn btn-prymary' %>
+  <%= link_to '削除', instagram_path(@instagram.id), method: :delete ,class: 'btn btn-prymary'%>
+  <% end %>
+  </h3>
+
+  <p class = "content_p"><%= @instagram.content %></p>
+  <br>
+  <%= link_to '戻る',instagrams_path %>
+</article>

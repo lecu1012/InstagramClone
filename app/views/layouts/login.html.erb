@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InstagramClone</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if logged_in? %>
+    <header class="header clearfix">
+      <nav>
+        <div class="row">
+          <div class="col-2"><%= button_to "お気に入り", favorite_path(current_user.id) ,method: :get,:class => "btn btn-outline-primary" %></div>
+          <div class="col-2"><%= button_to "ログアウト"  ,session_path(current_user.id) ,local: true, scope: :session ,method: :delete ,:class => "btn btn-outline-primary"%></div>
+        </div>
+      </nav>
+    </header>
+    <% else %>
+    <header class="header clearfix">
+      <nav>
+        <div class="row">
+          <div class="col-4"><%= button_to "アカウントを作成する", new_user_path ,:class => "btn btn-outline-primary" %></div>
+        </div>
+      </nav>
+    </header>
+    <% end %>
+
+    <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+    <% end %>
+
+    <%= yield %>
+    <footer class="footer">
+      <p>名前：栗本 裕基  　　受講時期：2017/8/1 ～　</p>
+    </footer>
+  </body>
+</html>
