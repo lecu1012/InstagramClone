@@ -4,11 +4,10 @@
     <% if @favorite == nil %>
       <h3>お気に入りがありません。</h3>
     <% else %>
-      <% @favorite.reverse_each do |instas| %>
-        <%  insta = Instagram.find_by(id: instas.instagram_id) %>
+      <% @favorite.reverse_each do |insta| %>
         <div class="col-md-4 col-sm-12 row-eq-height">
-        <%= link_to instagram_path(insta.id) do %>
-        <%= image_tag insta.image_url , style: 'height:auto;width:100%;'%>
+        <%= link_to instagram_path(insta.instagram.id) do %>
+        <%= image_tag insta.instagram.image_url , style: 'height:auto;width:100%;'%>
         <% end %>
       </div>
       <% end %>
