@@ -9,16 +9,17 @@
 
 </div>
 <div class="row">
-  <div class="col-1"><%= image_tag 'notimage.png' ,:class => "img-thumbnail" %></div>
+  <div class="col-1"></div>
   <div class="col-10 row">
 
     <% Instagram.all.reverse_each do |insta| %>
-    <div class="col-4 row-eq-height">
+    <div class="col-md-4 col-sm-12 row-eq-height">
       <%= link_to instagram_path(insta.id) do %>
       <%= image_tag insta.image_url , style: 'height:auto;width:100%;'%>
       <% end %>
+      <hr>
     </div>
     <% end %>
   </div>
-  <div class="col-1"><%= image_tag 'notimage.png' ,:class => "img-thumbnail" %></div>
+  <div class="col-1"></div>
 </div>
