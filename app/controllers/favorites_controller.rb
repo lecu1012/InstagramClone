@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
   def show
-    render layout: 'favorite'
     @favorite = current_user.favorites.where(user_id: current_user.id)
+    render layout: 'favorite'
   end
 
   def create

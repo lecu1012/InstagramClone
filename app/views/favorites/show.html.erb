@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-1"><%= image_tag 'notimage.png' ,:class => "img-thumbnail" %></div>
   <div class="col-10 row">
-    <% if @favorite == nil%>
+    <% if @favorite == nil %>
       <h3>お気に入りがありません。</h3>
     <% else %>
       <% @favorite.reverse_each do |instas| %>
